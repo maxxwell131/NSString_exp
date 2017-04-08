@@ -109,7 +109,47 @@ int main(int argc, const char * argv[]) {
             NSLog(@"Strings do not match");
         }
         
+        //--------Checking for string prefixes and suffixes--------------
+        NSString *string5 = @"The quick brown fox jumped";
+        BOOL result;
+        result = [string5 hasPrefix:@"The"];
+        if (result) {
+            NSLog(@"String begins with The");
+        }
+        result = [string5 hasSuffix:@"dog"];
+        if (result) {
+            NSLog(@"String end with dog");
+        }
         
+        //--------Converting to upper or lower case----------------------
+        str11 = @"The quicK brOwn fox jumpeD";
+        NSLog(@"str11 %@ adr. = %p",str11, str11); //The quicK brOwn fox jumpeD
+        str22 = [str11 capitalizedString]; //The Quick Brown Fox Jumped
+        NSLog(@"str22 %@ adr. = %p", str22, str22);
+
+        str22 = [str11 lowercaseString]; // the quick brown fox jumped
+        NSLog(@"str22 %@ adr. = %p", str22, str22);
+        
+        str22 = [str11 uppercaseString]; // THE QUICK BROWN FOX JUMPED
+        NSLog(@"str22 %@ adr. = %p", str22, str22);
+        
+        //---------Converting string to numbers---------------------------
+        str11 = @"10";
+        int myInt = [str11 intValue];
+        NSLog(@"myInt is %i", myInt);
+        
+        str11 = @"10.12345";
+        float myFloat = [str11 floatValue];
+        NSLog(@"myFloat is %f", myFloat);
+        
+        str11 = @"10";
+        NSInteger myNsInteger = [str11 integerValue];
+        NSLog(@"myNsInteger is %ld", (long)myNsInteger);
+        
+        //---------Convert a string object to ASCII-----------------------
+        str11 = @"The quick browen fox";
+        const char *myChar = [str11 UTF8String];
+        printf("Converted string %s/n", myChar);
     }
     return 0;
 }
